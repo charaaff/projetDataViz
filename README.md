@@ -133,7 +133,7 @@ VISUALISATIONS (3 GRAPHIQUES)	6
 DEPLOIEMENT	8
 
 
-Introduction
+# Introduction
 Dans le cadre d’un projet d’exploitation et de visualisation des données, j’ai extrait, nettoyé et structuré des informations relatives aux Jeux Olympiques à partir du site https://olympics-statistics.com/home.
 Ce rapport couvre :
 •	l’extraction par scraping des athlètes (nom, prénom, pays, genre) et de leur palmarès,
@@ -142,14 +142,19 @@ Ce rapport couvre :
 •	l’export des données nettoyées au format JSON,
 •	la création de trois visualisations (palmarès des athlètes, bilan médaille par pays, répartition par sport).
 
-Collecte & extraction des données
+# Collecte & extraction des données
 Pour la collecte et l’extraction, j’ai choisi le language Python, complété par des bibliothèques dédiées (requests, BeautifulSoup,time, re et json) pour récupérer, nettoyer et enregistrer les informations des Jeux Olympiques au format JSON.
 •	requests pour charger les pages web
 •	BeautifulSoup (bs4) pour parser le HTML et extraire les balises
 •	re pour nettoyer le texte
 •	json pour générer les fichiers de sortie
 •	time (sleep) pour espacer les requêtes et éviter de surcharger le serveur
+
+![alt text](image-1.png)
+
 Chaque script démarre d’une URL de base, envoie une requête, analyse le DOM avec BeautifulSoup, récupère les informations (athlètes, pays, sports), nettoie les résultats et les enregistre en JSON.
+
+![alt text](image-2.png)
 
 Avant de lancer le scraping, j’ai d’abord inspecté le code HTML du site pour repérer les balises et classes contenant les informations essentielles (athlètes, disciplines, pays). J’ai étudié les modèles d’URL menant aux fiches détaillées et aux pages par discipline ou par pays, et j’ai identifié les éventuelles difficultés (liens relatifs, pagination, variations de structure entre les pages). Cette analyse préalable m’a permis de concevoir des scripts plus robustes et d’anticiper les cas particuliers avant d’extraire les données.
 
@@ -163,23 +168,20 @@ Grâce à cette structure, le scraper peut lire d’abord la valeur du <span> po
 
 
 
-
-
-
-
-
-
+![alt text](image-3.png)
 
 
 Cette section du code récupère les informations de chaque athlète via BeautifulSoup, compile ces données grâce à fetch_athlete_detail() et les enregistre ensuite dans le fichier JSON (medaille_athlete.json).
-Nettoyage & structuration (JSON)
+# Nettoyage & structuration (JSON)
+
+![alt text](image-4.png)
 Cette petite fonction clean_text sert à normaliser une chaîne de caractères en trois étapes :
 Suppression des balises HTML : elle retire tout ce qui est entre < et >.
 Filtrage des caractères indésirables : elle ne conserve que les lettres (y compris accents), les chiffres, les espaces et le tiret.
 Nettoyage des espaces : elle remplace les multiples espaces par un seul et supprime ceux en début et fin de chaîne.
 Au final, on obtient un texte « propre », prêt à être analysé ou indexé.
 
-structure du fichier JSON
+![alt text](image-5.png) structure du fichier JSON
 
 
 
@@ -187,25 +189,17 @@ structure du fichier JSON
 J’ai un fichier JSON décrivant Jennifer Azzi, citoyenne des États-Unis, avec son palmarès sportif : un tableau de médailles listant pour chaque compétition le sport (“Basketball”), la couleur de la médaille (“gold”) et l’année (1996).
 
 
-Visualisations (3 graphiques)
+# Visualisations (3 graphiques)
 
 
+![alt text](image-6.png)
 
+![alt text](image-7.png)
 
-
-
-
-
-
-
-
-
-
-
+![alt text](image-8.png)
 
  
- 
-Déploiement 
+# Déploiement 
 Le code ainsi que les visualisations sont disponibles dans le dépôt git ci-dessous :
 https://github.com/charaaff/projetDataViz
 
