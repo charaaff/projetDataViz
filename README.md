@@ -107,11 +107,6 @@ Les résultats seront dans `png/`.
 ```
 
 
-## Licence
-
-Indiquez la licence de votre projet (MIT, Apache 2.0, etc.).
-
-
 
 ## Rapport 
 
