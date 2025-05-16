@@ -1,4 +1,3 @@
-
 import json
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -16,7 +15,7 @@ medals_expanded = athletes.explode("medals").dropna(subset=["medals"])
 medals_details = pd.json_normalize(medals_expanded["medals"])
 medals_details["athlete"] = medals_expanded["name"].values
 
-# Top 40 athlètes
+# Top 50 athlètes
 top_medalists = medals_details["athlete"].value_counts().head(50).sort_values()
 
 # Graphique
@@ -28,6 +27,6 @@ plt.grid(axis='x', linestyle='--', alpha=0.6)
 plt.tight_layout()
 
 # Enregistrement
-plt.savefig("png/top_athletes.png", dpi=300)
+plt.savefig("png/top_medaille_athletes.png", dpi=300)
 plt.close()
 

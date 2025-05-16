@@ -44,7 +44,7 @@ def main():
         )
 
     # 6. Sauvegarder le graphique en PNG haute résolution
-    output_path = 'png/top15_medaille_pays.png'
+    output_path = 'png/top_medaille_pays.png'
     plt.savefig(output_path, format='png', dpi=300)
     plt.close()
 

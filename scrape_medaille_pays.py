@@ -91,4 +91,4 @@ for i, nation in enumerate(nations_list):
 with open("json/medaille_pays.json", "w", encoding="utf-8") as f:
     json.dump(results, f, indent=2, ensure_ascii=False)
 
-print("✅ Fichier nettoyé et sauvegardé sous medaille_pays.json")
+print(" Fichier nettoyé et sauvegardé sous medaille_pays.json")
